@@ -1,0 +1,28 @@
+<h2>Listing storages</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Key</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for storage <- @storages do %>
+    <tr>
+      <td><%= storage.name %></td>
+      <td><%= storage.key %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: storage_path(@conn, :show, storage), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: storage_path(@conn, :edit, storage), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: storage_path(@conn, :delete, storage), method: :delete, class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New storage", to: storage_path(@conn, :new) %>

@@ -1,0 +1,32 @@
+<h2>Show photo</h2>
+
+<ul>
+
+  <li>
+    <strong>Set:</strong>
+    <%= @photo.set %>
+  </li>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @photo.name %>
+  </li>
+
+  <li>
+    <strong>Container:</strong>
+    <%= @photo.container %>
+  </li>
+
+  <li>
+    <strong>Dimensions:</strong>
+    <%= @photo.dimensions %>
+  </li>
+
+  <li>
+    <strong>Storage:</strong>
+    <%= @photo.storage %>
+  </li>
+
+</ul>
+
+<%= link "Back", to: photo_path(@conn, :index) %>

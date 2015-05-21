@@ -12,7 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :imageyard, Imageyard.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "developer",
+  password: "password",
   database: "imageyard_test",
+  template: "template0",
   size: 1 # Use a single connection for transactional tests

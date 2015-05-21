@@ -1,0 +1,6 @@
+<h2>Edit storage</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: storage_path(@conn, :update, @storage) %>
+
+<%= link "Back", to: storage_path(@conn, :index) %>

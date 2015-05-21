@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Phoenix!</title>
+    <title>Imageyard</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
@@ -15,9 +15,10 @@
     <div class="container" role="main">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+          <li><%= link "Photos", to: photo_path(@conn, :index) %></li>
+          <li><%= link "Storages", to: storage_path(@conn, :index) %></li>
         </ul>
-        <span class="logo"></span>
+        <span class="logo"><a href="/">Imageyard</a></span>
       </div>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>

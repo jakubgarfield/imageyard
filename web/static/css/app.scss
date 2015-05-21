@@ -12,10 +12,8 @@ body, form, ul, table {
   margin-bottom: 20px;
 }
 
-/* Phoenix flash messages */
 .alert:empty { display: none; }
 
-/* Phoenix inline forms in links and buttons */
 form.link, form.button {
   display: inline;
 }
@@ -25,12 +23,10 @@ form.link, form.button {
   border-bottom: 1px solid #e5e5e5;
 }
 .logo {
-  width: 519px;
-  height: 71px;
+  font-size: 40px;
+  font-weight: bold;
   display: inline-block;
-  margin-bottom: 1em;
-  background-image: url("/images/phoenix.png");
-  background-size: 519px 71px;
+  margin-bottom: 15px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -43,7 +39,7 @@ form.link, form.button {
 /* Customize container */
 @media (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 960px;
   }
 }
 .container-narrow > hr {
@@ -78,3 +74,5 @@ form.link, form.button {
     border-bottom: 0;
   }
 }
+
+.table td { text-overflow: ellipsis; }

@@ -34,6 +34,12 @@ defmodule Imageyard.Mixfile do
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 1.0"},
      {:phoenix_live_reload, "~> 0.4", only: :dev},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+     {:mogrify, "~> 0.1"},
+     {:erlazure, github: "dkataskin/erlazure"},
+     {:ecto, "~> 0.11.3" },
+     {:plug, "~> 0.12.2" },
+     {:addict, github: "trenpixster/addict"}
+   ]
   end
 end

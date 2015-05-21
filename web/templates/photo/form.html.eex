@@ -1,0 +1,46 @@
+<%= form_for @changeset, @action, [multipart: true], fn f -> %>
+  <%= if f.errors != [] do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below:</p>
+      <ul>
+        <%= for {attr, message} <- f.errors do %>
+          <li><%= humanize(attr) %> <%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <label>File</label>
+    <%= file_input f, :data %>
+  </div>
+
+  <div class="form-group">
+    <label>Name</label>
+    <%= text_input f, :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>Set</label>
+    <%= text_input f, :set, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>Container</label>
+    <%= text_input f, :container, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>Dimensions</label>
+    <%= text_input f, :dimensions, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>Storage</label>
+    <%= number_input f, :storage_id, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+<h2>Show storage</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @storage.name %>
+  </li>
+
+  <li>
+    <strong>Key:</strong>
+    <%= @storage.key %>
+  </li>
+
+</ul>
+
+<%= link "Back", to: storage_path(@conn, :index) %>

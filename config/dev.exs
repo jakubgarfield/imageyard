@@ -29,7 +29,8 @@ config :logger, :console, format: "[$level] $message\n"
 # Configure your database
 config :imageyard, Imageyard.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "developer",
+  password: "password",
   database: "imageyard_dev",
+  template: "template0",
   size: 10 # The amount of database connections in the pool
