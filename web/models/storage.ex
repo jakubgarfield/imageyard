@@ -4,6 +4,7 @@ defmodule Imageyard.Storage do
   schema "storages" do
     field :name, :string
     field :key, :string
+    has_many :photos, Imageyard.Photo
 
     timestamps
   end

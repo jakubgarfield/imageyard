@@ -11,7 +11,7 @@ defmodule Imageyard.Photo do
     timestamps
   end
 
-  @required_fields ~w(set name container dimensions)
+  @required_fields ~w(set name container dimensions storage_id)
   @optional_fields ~w()
 
   @doc """

@@ -19,11 +19,10 @@
       <td><%= photo.name %></td>
       <td><%= photo.container %></td>
       <td><%= photo.dimensions %></td>
-      <td><%= photo.storage %></td>
+      <td><%= photo.storage.name %></td>
 
       <td class="text-right">
         <%= link "Show", to: photo_path(@conn, :show, photo), class: "btn btn-default btn-xs" %>
-        <%= link "Edit", to: photo_path(@conn, :edit, photo), class: "btn btn-default btn-xs" %>
         <%= link "Delete", to: photo_path(@conn, :delete, photo), method: :delete, class: "btn btn-danger btn-xs" %>
       </td>
     </tr>
