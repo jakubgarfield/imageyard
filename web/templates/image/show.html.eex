@@ -1,32 +1,32 @@
-<h2>Show photo</h2>
+<h2>Show image</h2>
 
 <ul>
 
   <li>
     <strong>Set:</strong>
-    <%= @photo.set %>
+    <%= @image.set %>
   </li>
 
   <li>
     <strong>Name:</strong>
-    <%= @photo.name %>
+    <%= @image.name %>
   </li>
 
   <li>
     <strong>Container:</strong>
-    <%= @photo.container %>
+    <%= @image.container %>
   </li>
 
   <li>
     <strong>Dimensions:</strong>
-    <%= @photo.dimensions %>
+    <%= @image.dimensions %>
   </li>
 
   <li>
     <strong>Storage:</strong>
-    <%= @photo.storage %>
+    <%= @image.storage %>
   </li>
 
 </ul>
 
-<%= link "Back", to: photo_path(@conn, :index) %>
+<%= link "Back", to: image_path(@conn, :index) %>

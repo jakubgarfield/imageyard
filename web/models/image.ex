@@ -1,7 +1,7 @@
-defmodule Imageyard.Photo do
+defmodule Imageyard.Image do
   use Imageyard.Web, :model
 
-  schema "photos" do
+  schema "images" do
     field :set, :string
     field :name, :string
     field :container, :string

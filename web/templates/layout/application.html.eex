@@ -15,7 +15,7 @@
     <div class="container" role="main">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li><%= link "Photos", to: photo_path(@conn, :index) %></li>
+          <li><%= link "Images", to: image_path(@conn, :index) %></li>
           <li><%= link "Storages", to: storage_path(@conn, :index) %></li>
         </ul>
         <span class="logo"><a href="/">Imageyard</a></span>

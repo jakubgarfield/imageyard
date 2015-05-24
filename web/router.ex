@@ -15,10 +15,10 @@ defmodule Imageyard.Router do
   scope "/", Imageyard do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PhotoController, :new
+    get "/", ImageController, :new
 
     resources "/storages", StorageController
-    resources "/photos", PhotoController, only: [:index, :new, :create, :show, :delete]
+    resources "/images", ImageController, only: [:index, :new, :create, :show, :delete]
   end
 
 end
