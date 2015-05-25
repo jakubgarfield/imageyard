@@ -16,7 +16,7 @@ defmodule Imageyard.ImageController do
 
   def new(conn, _params) do
     changeset = Image.changeset(%Image{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", changeset: changeset, storages: available_storages)
   end
 
   def create(conn, %{"image" => image_params}) do
@@ -59,5 +59,10 @@ defmodule Imageyard.ImageController do
       { "dimensions", dimensions } -> Enum.map(String.split(dimensions, ","), fn(i) -> String.strip(i) end)
       _ -> value
     end
+  end
+
+  def available_storages do
+    storages = Repo.all(Storage)
+    Enum.map(storages, fn (storage) -> { storage.name, storage.id } end)
   end
 end

@@ -37,7 +37,7 @@
 
   <div class="form-group">
     <label>Storage</label>
-    <%= number_input f, :storage_id, class: "form-control" %>
+    <%= select f, :storage_id, @storages , class: "form-control" %>
   </div>
 
   <div class="form-group">
