@@ -2,6 +2,7 @@ defmodule Imageyard.StorageController do
   use Imageyard.Web, :controller
 
   alias Imageyard.Storage
+  alias Imageyard.AzureRepository
 
   plug :scrub_params, "storage" when action in [:create, :update]
   plug :action
@@ -32,7 +33,8 @@ defmodule Imageyard.StorageController do
 
   def show(conn, %{"id" => id}) do
     storage = Repo.get(Storage, id)
-    render(conn, "show.html", storage: storage)
+    containers = AzureRepository.list_containers(storage)
+    render(conn, "show.html", storage: storage, containers: containers)
   end
 
   def edit(conn, %{"id" => id}) do

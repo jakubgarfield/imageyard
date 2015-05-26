@@ -1,17 +1,41 @@
 <h2>Show storage</h2>
 
 <ul>
-
   <li>
     <strong>Name:</strong>
     <%= @storage.name %>
   </li>
-
   <li>
     <strong>Key:</strong>
     <%= @storage.key %>
   </li>
-
 </ul>
+
+<%= for container <- @containers do %>
+  <div>
+    <h3><%= container.name %></h3>
+    <ul>
+      <li><strong>Type:</strong> <%= container.type %> </li>
+      <li><%= link "Delete", to: storage_path(@conn, :delete, @storage), method: :delete, class: "btn btn-danger btn-xs" %></li>
+    </ul>
+    <h5>List of blobs</h5>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= for blob <- container.blobs do %>
+        <tr>
+          <td><%= blob.name %></td>
+          <td><%= blob.type %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
 
 <%= link "Back", to: storage_path(@conn, :index) %>
