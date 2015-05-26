@@ -16,7 +16,6 @@
     <h3><%= container.name %></h3>
     <ul>
       <li><strong>Type:</strong> <%= container.type %> </li>
-      <li><%= link "Delete", to: storage_path(@conn, :delete, @storage), method: :delete, class: "btn btn-danger btn-xs" %></li>
     </ul>
     <h5>List of blobs</h5>
     <table class="table">
