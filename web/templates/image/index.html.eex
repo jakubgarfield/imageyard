@@ -19,7 +19,7 @@
       <td><%= image.name %></td>
       <td><%= image.container %></td>
       <td><%= image.dimensions %></td>
-      <td><%= image.storage.name %></td>
+      <td><%= link image.storage.name, to: storage_path(@conn, :show, image.storage) %></td>
 
       <td class="text-right">
         <%= link "Show", to: image_path(@conn, :show, image), class: "btn btn-default btn-xs" %>

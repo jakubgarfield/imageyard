@@ -1,5 +1,6 @@
 defmodule Imageyard.ResizeImages do
   import Mogrify
+  alias Imageyard.Image
 
   def call(path, dimensions, filename) do
     ensure_output
@@ -24,7 +25,7 @@ defmodule Imageyard.ResizeImages do
   end
 
   def resize_image(input, dimension, filename) do
-    output_file = "/Users/jakub/projects/elixir/output/#{filename}-#{dimension}.jpg"
+    output_file = "/Users/jakub/projects/elixir/output/#{Image.full_filename(filename, dimension)}"
     input |> copy |> resize(dimension) |> save(output_file)
     output_file
   end

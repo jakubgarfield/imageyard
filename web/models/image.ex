@@ -1,6 +1,8 @@
 defmodule Imageyard.Image do
   use Imageyard.Web, :model
 
+  alias Imageyard.AzureRepository
+
   schema "images" do
     field :set, :string
     field :name, :string
@@ -23,5 +25,15 @@ defmodule Imageyard.Image do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
+  end
+
+  def urls(image) do
+    Enum.map(image.dimensions, fn (dimension) ->
+      AzureRepository.path(image.storage, image.container, full_filename(image.name, dimension))
+    end)
+  end
+
+  def full_filename(filename, dimension) do
+    "#{filename}-#{dimension}.jpg"
   end
 end

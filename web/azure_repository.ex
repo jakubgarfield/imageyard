@@ -32,4 +32,8 @@ defmodule Imageyard.AzureRepository do
     {:ok, pid} = :erlazure.start(to_char_list(storage.name), to_char_list(storage.key))
     :erlazure.delete_container(pid, to_char_list(name))
   end
+
+  def path(storage, container, filename) do
+    "https://#{storage.name}.blob.core.windows.net/#{container}/#{filename}"
+  end
 end

@@ -47,6 +47,9 @@ defmodule Imageyard.ImageController do
 
   def delete(conn, %{"id" => id}) do
     image = Repo.get(Image, id)
+
+    # DELETE FROM AZURE
+
     Repo.delete(image)
 
     conn

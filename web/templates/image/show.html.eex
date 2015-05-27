@@ -24,9 +24,27 @@
 
   <li>
     <strong>Storage:</strong>
-    <%= @image.storage %>
+    <%= link @image.storage.name, to: storage_path(@conn, :show, @image.storage) %>
   </li>
-
 </ul>
+
+<div>
+  <h3>URL</h3>
+  <ul>
+  <%= for url <- Imageyard.Image.urls(@image) do %>
+    <li><%= link url, to: url %></li>
+  <% end %>
+  </ul>
+</div>
+
+<div>
+  <h3>Images</h3>
+  <ul>
+  <%= for url <- Imageyard.Image.urls(@image) do %>
+    <li><img src="<%= url %>" /></li>
+  <% end %>
+  </ul>
+</div>
+
 
 <%= link "Back", to: image_path(@conn, :index) %>
