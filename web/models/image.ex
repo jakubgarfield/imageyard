@@ -33,6 +33,12 @@ defmodule Imageyard.Image do
     end)
   end
 
+  def full_filenames(image) do
+    Enum.map(image.dimensions, fn (dimension) ->
+      full_filename(image.name, dimension)
+    end)
+  end
+
   def full_filename(filename, dimension) do
     "#{filename}-#{dimension}.jpg"
   end

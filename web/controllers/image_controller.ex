@@ -46,9 +46,11 @@ defmodule Imageyard.ImageController do
   end
 
   def delete(conn, %{"id" => id}) do
-    image = Repo.get(Image, id)
+    image = Repo.get(Image, id) |> Repo.preload([:storage])
 
-    # DELETE FROM AZURE
+    Enum.each(Image.full_filenames(image), fn (filename) ->
+      AzureRepository.delete_blob(filename, image.storage, image.container)
+    end)
 
     Repo.delete(image)
 
