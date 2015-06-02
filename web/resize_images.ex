@@ -3,12 +3,12 @@ defmodule Imageyard.ResizeImages do
   alias Imageyard.Image
 
   def call(path, dimensions, filename) do
-    ensure_output
+    directory = Path.dirname(path)
     input = open(path)
     parent = self
     pids = Enum.map(dimensions, fn (dimension) ->
       spawn fn ->
-        send(parent, { self(), resize_image(input, dimension, filename) })
+        send(parent, { self(), resize_image(input, dimension, filename, directory) })
       end
     end)
 
@@ -19,13 +19,8 @@ defmodule Imageyard.ResizeImages do
     end)
   end
 
-  def ensure_output(directory \\ "/Users/jakub/projects/elixir/output") do
-    File.rm_rf!(directory)
-    File.mkdir!(directory)
-  end
-
-  def resize_image(input, dimension, filename) do
-    output_file = "/Users/jakub/projects/elixir/output/#{Image.full_filename(filename, dimension)}"
+  def resize_image(input, dimension, filename, directory) do
+    output_file = Path.join(directory, Image.full_filename(filename, dimension))
     input |> copy |> resize(dimension) |> save(output_file)
     output_file
   end

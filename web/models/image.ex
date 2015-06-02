@@ -29,17 +29,17 @@ defmodule Imageyard.Image do
 
   def urls(image) do
     Enum.map(image.dimensions, fn (dimension) ->
-      AzureRepository.path(image.storage, image.container, full_filename(image.name, dimension))
+      AzureRepository.path(image.storage, image.container, full_filename(image.set, image.name, dimension))
     end)
   end
 
   def full_filenames(image) do
     Enum.map(image.dimensions, fn (dimension) ->
-      full_filename(image.name, dimension)
+      full_filename(image.set, image.name, dimension)
     end)
   end
 
-  def full_filename(filename, dimension) do
-    "#{filename}-#{dimension}.jpg"
+  def full_filename(set, filename, dimension) do
+    "#{set}-#{filename}-#{dimension}.jpg"
   end
 end
