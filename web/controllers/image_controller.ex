@@ -27,7 +27,7 @@ defmodule Imageyard.ImageController do
     storage = Repo.get(Storage, mapped_parameters["storage_id"])
     changeset = Image.changeset(%Image{}, mapped_parameters)
     if changeset.valid? do
-      resized_images = ResizeImages.call(image_params["data"].path, mapped_parameters["dimensions"], "#{mapped_parameters["set"]}-#{mapped_parameters["name"]}")
+      resized_images = ResizeImages.call(image_params["data"].path, mapped_parameters["dimensions"], mapped_parameters["set"], mapped_parameters["name"])
       Enum.each(resized_images, fn (path) -> AzureRepository.create_blob(path, storage, mapped_parameters["container"]) end)
 
       Repo.insert(changeset)
